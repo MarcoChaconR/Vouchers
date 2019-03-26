@@ -3,10 +3,8 @@ package Entidades;
 /**
  * @author mchaconr
  */
-
-
 public class Voucher {
-    
+
     private String afiliado;
     private String deposito;
     private String tarjeta;
@@ -17,6 +15,21 @@ public class Voucher {
     private double comision;
     private int lote;
     private String feLote;
+    private Enumeradores.moneda moneda;
+
+    /**
+     * @return the moneda
+     */
+    public Enumeradores.moneda getMoneda() {
+        return moneda;
+    }
+
+    /**
+     * @param moneda the moneda to set
+     */
+    public void setMoneda(Enumeradores.moneda moneda) {
+        this.moneda = moneda;
+    }
 
     /**
      * @return the afiliado
@@ -157,6 +170,5 @@ public class Voucher {
     public void setFeLote(String feLote) {
         this.feLote = feLote;
     }
-    
-    
+
 }
