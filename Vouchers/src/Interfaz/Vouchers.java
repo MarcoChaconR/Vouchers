@@ -16,8 +16,8 @@ public class Vouchers {
      */
     public static void main(String[] args) {
         //System.getProperty("");
-        Voucher voucher = new Voucher();
-        
+        PrincipalForm ventana = new PrincipalForm();
+        ventana.show(true);
         
     }
 

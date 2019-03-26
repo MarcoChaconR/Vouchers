@@ -5,10 +5,13 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mchaconr
  */
+
 public class PrincipalForm extends javax.swing.JFrame {
 
     /**
@@ -41,12 +44,12 @@ public class PrincipalForm extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        VouchersDolares = new javax.swing.JMenuItem();
+        VouchersColones = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        EstractosColones = new javax.swing.JMenuItem();
+        EstractosDolares = new javax.swing.JMenuItem();
+        LimpiarTablas = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
@@ -60,6 +63,8 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         jTabbedPane1.setName("ListaVouchers"); // NOI18N
 
+        jTabbedPane2.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -70,10 +75,22 @@ public class PrincipalForm extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jTable1.setSelectionBackground(new java.awt.Color(0, 204, 102));
+        jTable1.setShowHorizontalLines(false);
+        jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
 
-        jTabbedPane2.addTab("", jScrollPane1);
+        jTabbedPane2.addTab("Tabla", jScrollPane1);
 
         jTabbedPane1.addTab("Vouchers", jTabbedPane2);
 
@@ -91,7 +108,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         jTable2.setName("ListaDepositos"); // NOI18N
         jScrollPane2.setViewportView(jTable2);
 
-        jTabbedPane3.addTab("tab1", jScrollPane2);
+        jTabbedPane3.addTab("Tabla", null, jScrollPane2, "");
 
         jTabbedPane1.addTab("Depósitos", jTabbedPane3);
 
@@ -105,12 +122,12 @@ public class PrincipalForm extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Afiliado", "Title 2", "Title 3", "Title 4"
             }
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jTabbedPane4.addTab("tab1", jScrollPane3);
+        jTabbedPane4.addTab("Tabla", jScrollPane3);
 
         jTabbedPane1.addTab("Errores", jTabbedPane4);
 
@@ -121,26 +138,36 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         jMenu3.setText("Vouchers");
 
-        jMenuItem1.setText("Dolares");
-        jMenu3.add(jMenuItem1);
+        VouchersDolares.setText("Dolares");
+        VouchersDolares.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VouchersDolaresActionPerformed(evt);
+            }
+        });
+        jMenu3.add(VouchersDolares);
 
-        jMenuItem2.setText("Colones");
-        jMenu3.add(jMenuItem2);
+        VouchersColones.setText("Colones");
+        VouchersColones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VouchersColonesActionPerformed(evt);
+            }
+        });
+        jMenu3.add(VouchersColones);
 
         jMenu1.add(jMenu3);
 
         jMenu4.setText("Estractos Bancarios");
 
-        jMenuItem3.setText("Colones");
-        jMenu4.add(jMenuItem3);
+        EstractosColones.setText("Colones");
+        jMenu4.add(EstractosColones);
 
-        jMenuItem4.setText("Dolares");
-        jMenu4.add(jMenuItem4);
+        EstractosDolares.setText("Dolares");
+        jMenu4.add(EstractosDolares);
 
         jMenu1.add(jMenu4);
 
-        jMenuItem5.setText("Limpiar Tabla");
-        jMenu1.add(jMenuItem5);
+        LimpiarTablas.setText("Limpiar Tabla");
+        jMenu1.add(LimpiarTablas);
         jMenu1.add(jSeparator1);
 
         jMenuBar1.add(jMenu1);
@@ -156,6 +183,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setJMenuBar(jMenuBar1);
+        jMenuBar1.getAccessibleContext().setAccessibleParent(this);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,6 +213,17 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
+        // TODO add your handling code here:
+        
+         JOptionPane.showMessageDialog(this, "Holis");
+    }//GEN-LAST:event_VouchersColonesActionPerformed
+
+    private void VouchersDolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersDolaresActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_VouchersDolaresActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,16 +261,16 @@ public class PrincipalForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem EstractosColones;
+    private javax.swing.JMenuItem EstractosDolares;
+    private javax.swing.JMenuItem LimpiarTablas;
+    private javax.swing.JMenuItem VouchersColones;
+    private javax.swing.JMenuItem VouchersDolares;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
@@ -247,4 +286,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
