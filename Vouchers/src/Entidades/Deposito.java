@@ -4,15 +4,11 @@ package Entidades;
  *
  * @author mchaconr
  */
-public class Deposito {
+public class Deposito extends Transaccion{
 
     private String fecDeposito;
-    private int deposito;
     private double monto;
     private String detalle;
-    private String Afiliado;
-    private long liquidacion;
-    private Enumeradores.moneda moneda;
 
     /**
      * @return the fecDeposito
@@ -26,20 +22,6 @@ public class Deposito {
      */
     public void setFecDeposito(String fecDeposito) {
         this.fecDeposito = fecDeposito;
-    }
-
-    /**
-     * @return the deposito
-     */
-    public int getDeposito() {
-        return deposito;
-    }
-
-    /**
-     * @param deposito the deposito to set
-     */
-    public void setDeposito(int deposito) {
-        this.deposito = deposito;
     }
 
     /**
@@ -68,48 +50,6 @@ public class Deposito {
      */
     public void setDetalle(String detalle) {
         this.detalle = detalle;
-    }
-
-    /**
-     * @return the Afiliado
-     */
-    public String getAfiliado() {
-        return Afiliado;
-    }
-
-    /**
-     * @param Afiliado the Afiliado to set
-     */
-    public void setAfiliado(String Afiliado) {
-        this.Afiliado = Afiliado;
-    }
-
-    /**
-     * @return the liquidacion
-     */
-    public long getLiquidacion() {
-        return liquidacion;
-    }
-
-    /**
-     * @param liquidacion the liquidacion to set
-     */
-    public void setLiquidacion(long liquidacion) {
-        this.liquidacion = liquidacion;
-    }
-
-    /**
-     * @return the moneda
-     */
-    public Enumeradores.moneda getMoneda() {
-        return moneda;
-    }
-
-    /**
-     * @param moneda the moneda to set
-     */
-    public void setMoneda(Enumeradores.moneda moneda) {
-        this.moneda = moneda;
     }
 
 }

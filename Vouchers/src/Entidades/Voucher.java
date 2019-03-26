@@ -3,61 +3,14 @@ package Entidades;
 /**
  * @author mchaconr
  */
-public class Voucher {
+public class Voucher extends Transaccion{
 
-    private String afiliado;
-    private String deposito;
     private String tarjeta;
-    private long liquidacion;
     private int autorizacion;
     private String feAutorizacion;
-    private double monto;
     private double comision;
     private int lote;
     private String feLote;
-    private Enumeradores.moneda moneda;
-
-    /**
-     * @return the moneda
-     */
-    public Enumeradores.moneda getMoneda() {
-        return moneda;
-    }
-
-    /**
-     * @param moneda the moneda to set
-     */
-    public void setMoneda(Enumeradores.moneda moneda) {
-        this.moneda = moneda;
-    }
-
-    /**
-     * @return the afiliado
-     */
-    public String getAfiliado() {
-        return afiliado;
-    }
-
-    /**
-     * @param afiliado the afiliado to set
-     */
-    public void setAfiliado(String afiliado) {
-        this.afiliado = afiliado;
-    }
-
-    /**
-     * @return the deposito
-     */
-    public String getDeposito() {
-        return deposito;
-    }
-
-    /**
-     * @param deposito the deposito to set
-     */
-    public void setDeposito(String deposito) {
-        this.deposito = deposito;
-    }
 
     /**
      * @return the tarjeta
@@ -71,20 +24,6 @@ public class Voucher {
      */
     public void setTarjeta(String tarjeta) {
         this.tarjeta = tarjeta;
-    }
-
-    /**
-     * @return the liquidacion
-     */
-    public long getLiquidacion() {
-        return liquidacion;
-    }
-
-    /**
-     * @param liquidacion the liquidacion to set
-     */
-    public void setLiquidacion(long liquidacion) {
-        this.liquidacion = liquidacion;
     }
 
     /**
@@ -113,20 +52,6 @@ public class Voucher {
      */
     public void setFeAutorizacion(String feAutorizacion) {
         this.feAutorizacion = feAutorizacion;
-    }
-
-    /**
-     * @return the monto
-     */
-    public double getMonto() {
-        return monto;
-    }
-
-    /**
-     * @param monto the monto to set
-     */
-    public void setMonto(double monto) {
-        this.monto = monto;
     }
 
     /**
