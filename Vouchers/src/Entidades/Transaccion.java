@@ -10,6 +10,7 @@ package Entidades;
  * @author mchaconr
  */
 public class Transaccion {
+
     private String afiliado;
     private Enumeradores.moneda moneda;
     private double monto;
@@ -85,6 +86,5 @@ public class Transaccion {
     public void setLiquidacion(long liquidacion) {
         this.liquidacion = liquidacion;
     }
-    
-    
+
 }

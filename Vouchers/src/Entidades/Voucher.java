@@ -3,13 +3,12 @@ package Entidades;
 /**
  * @author mchaconr
  */
-public class Voucher extends Transaccion{
+public class Voucher extends Transaccion {
 
     private String tarjeta;
     private int autorizacion;
     private String feAutorizacion;
     private double comision;
-
 
     /**
      * @return the tarjeta

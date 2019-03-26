@@ -4,7 +4,7 @@ package Entidades;
  *
  * @author mchaconr
  */
-public class Deposito extends Transaccion{
+public class Deposito extends Transaccion {
 
     private String fecDeposito;
     private double monto;

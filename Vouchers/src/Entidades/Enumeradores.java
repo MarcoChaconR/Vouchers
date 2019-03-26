@@ -10,8 +10,9 @@ package Entidades;
  * @author mchaconr
  */
 public class Enumeradores {
-     public enum moneda{
-         DOLARES, COLONES
-     }
-    
+
+    public enum moneda {
+        DOLARES, COLONES
+    }
+
 }

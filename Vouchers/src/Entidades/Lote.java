@@ -9,11 +9,12 @@ package Entidades;
  *
  * @author mchaconr
  */
-public class Lote extends Voucher{
+public class Lote extends Voucher {
+
     private Voucher voucher;
     private int lote;
     private String feLote;
-    
+
     /**
      * @return the voucher
      */
@@ -55,6 +56,5 @@ public class Lote extends Voucher{
     public void setFeLote(String feLote) {
         this.feLote = feLote;
     }
-    
-    
+
 }
