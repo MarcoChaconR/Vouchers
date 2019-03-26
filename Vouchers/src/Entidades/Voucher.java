@@ -6,7 +6,7 @@ package Entidades;
 public class Voucher extends Transaccion {
 
     private String tarjeta;
-    private int autorizacion;
+    private String autorizacion;
     private String feAutorizacion;
     private double comision;
 
@@ -27,14 +27,14 @@ public class Voucher extends Transaccion {
     /**
      * @return the autorizacion
      */
-    public int getAutorizacion() {
+    public String getAutorizacion() {
         return autorizacion;
     }
 
     /**
      * @param autorizacion the autorizacion to set
      */
-    public void setAutorizacion(int autorizacion) {
+    public void setAutorizacion(String autorizacion) {
         this.autorizacion = autorizacion;
     }
 

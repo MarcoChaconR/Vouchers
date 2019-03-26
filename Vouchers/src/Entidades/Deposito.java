@@ -7,7 +7,6 @@ package Entidades;
 public class Deposito extends Transaccion {
 
     private String fecDeposito;
-    private double monto;
     private String detalle;
 
     /**
@@ -22,20 +21,6 @@ public class Deposito extends Transaccion {
      */
     public void setFecDeposito(String fecDeposito) {
         this.fecDeposito = fecDeposito;
-    }
-
-    /**
-     * @return the monto
-     */
-    public double getMonto() {
-        return monto;
-    }
-
-    /**
-     * @param monto the monto to set
-     */
-    public void setMonto(double monto) {
-        this.monto = monto;
     }
 
     /**
