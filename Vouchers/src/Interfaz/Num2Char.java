@@ -1,4 +1,4 @@
-package vouchers;
+package Interfaz;
 
 public class Num2Char {
 

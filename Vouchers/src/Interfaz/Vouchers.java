@@ -3,8 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vouchers;
-
+package Interfaz;
+ import Entidades.*;
 /**
  *
  * @author mchaconr
@@ -15,7 +15,10 @@ public class Vouchers {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //System.getProperty("");
+        Voucher voucher = new Voucher();
+        
+        
     }
 
 }
