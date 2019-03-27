@@ -5,7 +5,10 @@
  */
 package Interfaz;
 
+import java.io.File;
 import javax.swing.JOptionPane;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -174,13 +177,30 @@ public class PrincipalForm extends javax.swing.JFrame {
 
     private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
         // TODO add your handling code here:
-        
-         JOptionPane.showMessageDialog(this, "Holis");
+
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto", ".txt");
+        fileChooser.setFileFilter(filtro);
+
+        int result = fileChooser.showOpenDialog(this);
+
+        if (result != JFileChooser.CANCEL_OPTION) {
+
+            File fileName = fileChooser.getSelectedFile();
+
+            if ((fileName == null) || (fileName.getName().equals(""))) {
+                JOptionPane.showMessageDialog(this,"...");
+            } else {
+                JOptionPane.showMessageDialog(this,fileName.getAbsolutePath());
+            }
+        }
     }//GEN-LAST:event_VouchersColonesActionPerformed
 
     private void VouchersDolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersDolaresActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_VouchersDolaresActionPerformed
 
     /**
@@ -242,7 +262,5 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JTable jTable3;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
-
-
 
 }
