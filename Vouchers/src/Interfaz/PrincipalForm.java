@@ -8,19 +8,30 @@ package Interfaz;
 import java.io.File;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
+import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
  * @author mchaconr
  */
-
 public class PrincipalForm extends javax.swing.JFrame {
 
     /**
      * Creates new form PrincipalForm
      */
     public PrincipalForm() {
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Windows".equalsIgnoreCase(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+
         initComponents();
     }
 
@@ -191,9 +202,9 @@ public class PrincipalForm extends javax.swing.JFrame {
             File fileName = fileChooser.getSelectedFile();
 
             if ((fileName == null) || (fileName.getName().equals(""))) {
-                JOptionPane.showMessageDialog(this,"...");
+                JOptionPane.showMessageDialog(this, "...");
             } else {
-                JOptionPane.showMessageDialog(this,fileName.getAbsolutePath());
+                JOptionPane.showMessageDialog(this, fileName.getAbsolutePath());
             }
         }
     }//GEN-LAST:event_VouchersColonesActionPerformed
@@ -207,34 +218,29 @@ public class PrincipalForm extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("jgoodies".equalsIgnoreCase(info.getName())) {
+                    UIManager.setLookAndFeel(info.getClassName());
+                    JOptionPane.showMessageDialog(null, info.getClassName());
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
+            //java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+
+//        try {
+//            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+//
+//        } catch (Exception ex) {
+//        }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PrincipalForm().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new PrincipalForm().setVisible(true);
         });
     }
 
