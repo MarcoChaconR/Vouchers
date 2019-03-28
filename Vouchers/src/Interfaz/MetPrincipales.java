@@ -6,9 +6,14 @@
 package Interfaz;
 
 import java.awt.Component;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
@@ -17,7 +22,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class MetPrincipales {
 
-    public static File VouchersColones(Component parent, String moneda) {
+    public static File SeleccionarArchivo(Component parent, String moneda) {
         String optiones[] = {"Continuar", "Cancelar"};
         JFileChooser fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
@@ -40,10 +45,23 @@ public class MetPrincipales {
                 } else {
                     JOptionPane.showMessageDialog(parent, "No se cargara ningún Archivo!", "Mensage!", JOptionPane.WARNING_MESSAGE);
                 }
-
             }
         }
         return null;
+    }
+
+    public static JTable Tabla(File Archivo) throws FileNotFoundException, IOException {
+        JTable tabla = new JTable();
+        FileReader leer = new FileReader(Archivo.getAbsoluteFile());
+        BufferedReader linea = new BufferedReader(leer);
+        String sCadena = "";
+
+        while ((sCadena = linea.readLine()) != null) {
+            JOptionPane.showConfirmDialog(null, sCadena);
+        }
+
+        return tabla;
+
     }
 
 }

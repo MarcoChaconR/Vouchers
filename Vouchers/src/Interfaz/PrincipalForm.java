@@ -5,7 +5,10 @@
  */
 package Interfaz;
 
+import static Interfaz.MetPrincipales.SeleccionarArchivo;
+import static Interfaz.MetPrincipales.Tabla;
 import java.io.File;
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
@@ -173,12 +176,19 @@ public class PrincipalForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
-        MetPrincipales.VouchersColones(this, "Colones");
+        File archivo = SeleccionarArchivo(this, "Colones");
+        
+        try{
+            Tabla(archivo);
+        }catch (IOException ex){
+            
+        }
+        
     }//GEN-LAST:event_VouchersColonesActionPerformed
 
     private void VouchersDolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersDolaresActionPerformed
         // TODO add your handling code here:
-        MetPrincipales.VouchersColones(this, "Dólares");
+        MetPrincipales.SeleccionarArchivo(this, "Dólares");
 
     }//GEN-LAST:event_VouchersDolaresActionPerformed
 
