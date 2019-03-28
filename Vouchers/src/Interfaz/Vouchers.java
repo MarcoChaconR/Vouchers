@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package Interfaz;
- import Entidades.*;
+
+import Entidades.*;
+
 /**
  *
  * @author mchaconr
@@ -16,9 +18,12 @@ public class Vouchers {
      */
     public static void main(String[] args) {
         //System.getProperty("");
+        //PrincipalForm ventana = new PrincipalForm();
         PrincipalForm ventana = new PrincipalForm();
-        ventana.show(true);
         
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+
     }
 
 }

@@ -77,6 +77,7 @@ public class Num2Char {
                 case 4:
                     hilera = lcBloque + IIf(lnBloqueCero == 3, "", " MIL") + hilera;
             }
+
             lnNumeroBloques++;
 
         } while (lyCantidad != 0);

@@ -51,7 +51,6 @@ public class PrincipalForm extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTabbedPane4 = new javax.swing.JTabbedPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         label1 = new java.awt.Label();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -69,6 +68,8 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Carga de Vouchers de Credomatic");
+        setLocation(new java.awt.Point(0, 0));
+        setMaximumSize(new java.awt.Dimension(800, 600));
         setMinimumSize(new java.awt.Dimension(800, 600));
         setResizable(false);
         setSize(new java.awt.Dimension(800, 600));
@@ -76,30 +77,17 @@ public class PrincipalForm extends javax.swing.JFrame {
         jTabbedPane1.setName("ListaVouchers"); // NOI18N
 
         jTabbedPane2.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
-        jTabbedPane2.addTab("Tabla", jScrollPane1);
+        jTabbedPane2.addTab("Carga de Vouchers de Credomatic", jScrollPane1);
 
         jTabbedPane1.addTab("Vouchers", jTabbedPane2);
+        jTabbedPane2.getAccessibleContext().setAccessibleName("");
 
-        jTabbedPane3.addTab("Tabla", null, jScrollPane2, "");
+        jTabbedPane3.addTab("Estracto Bancario", null, jScrollPane2, "");
 
         jTabbedPane1.addTab("Depósitos", jTabbedPane3);
 
         jTabbedPane4.setName("ListaErrores"); // NOI18N
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Afiliado", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        jTabbedPane4.addTab("Tabla", jScrollPane3);
+        jTabbedPane4.addTab("Lista de Errores ", jScrollPane3);
 
         jTabbedPane1.addTab("Errores", jTabbedPane4);
 
@@ -182,35 +170,15 @@ public class PrincipalForm extends javax.swing.JFrame {
 
         jTabbedPane1.getAccessibleContext().setAccessibleName("Carga de Vouchers");
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
-
-        pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
-        // TODO add your handling code here:
-
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-
-        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos de texto", ".txt");
-        fileChooser.setFileFilter(filtro);
-
-        int result = fileChooser.showOpenDialog(this);
-
-        if (result != JFileChooser.CANCEL_OPTION) {
-
-            File fileName = fileChooser.getSelectedFile();
-
-            if ((fileName == null) || (fileName.getName().equals(""))) {
-                JOptionPane.showMessageDialog(this, "...");
-            } else {
-                JOptionPane.showMessageDialog(this, fileName.getAbsolutePath());
-            }
-        }
+        MetPrincipales.VouchersColones(this, "Colones");
     }//GEN-LAST:event_VouchersColonesActionPerformed
 
     private void VouchersDolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersDolaresActionPerformed
         // TODO add your handling code here:
+        MetPrincipales.VouchersColones(this, "Dólares");
 
     }//GEN-LAST:event_VouchersDolaresActionPerformed
 
@@ -219,26 +187,6 @@ public class PrincipalForm extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
 
-        try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("jgoodies".equalsIgnoreCase(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    JOptionPane.showMessageDialog(null, info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            //java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
-//        try {
-//            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-//
-//        } catch (Exception ex) {
-//        }
-        //</editor-fold>
-
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new PrincipalForm().setVisible(true);
         });
@@ -265,7 +213,6 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
-    private javax.swing.JTable jTable3;
     private java.awt.Label label1;
     // End of variables declaration//GEN-END:variables
 
