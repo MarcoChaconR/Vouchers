@@ -9,6 +9,8 @@ public class Voucher extends Transaccion {
     private String autorizacion;
     private String feAutorizacion;
     private double comision;
+    private int lote;
+    private String feLote;
 
     /**
      * @return the tarjeta
@@ -64,6 +66,34 @@ public class Voucher extends Transaccion {
      */
     public void setComision(double comision) {
         this.comision = comision;
+    }
+
+    /**
+     * @return the lote
+     */
+    public int getLote() {
+        return lote;
+    }
+
+    /**
+     * @param lote the lote to set
+     */
+    public void setLote(int lote) {
+        this.lote = lote;
+    }
+
+    /**
+     * @return the feLote
+     */
+    public String getFeLote() {
+        return feLote;
+    }
+
+    /**
+     * @param feLote the feLote to set
+     */
+    public void setFeLote(String feLote) {
+        this.feLote = feLote;
     }
 
 }
