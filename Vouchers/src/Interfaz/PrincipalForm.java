@@ -23,7 +23,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     public PrincipalForm() {
         try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Windows".equalsIgnoreCase(info.getName())) {
+                if (("Windows".equalsIgnoreCase(info.getName())) || ("GTK+".equalsIgnoreCase(info.getName()))) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
