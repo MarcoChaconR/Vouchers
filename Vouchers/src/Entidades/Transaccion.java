@@ -9,8 +9,8 @@ public class Transaccion {
     private String afiliado;
     private Enumeradores.moneda moneda;
     private double monto;
-    private int deposito;
-    private long liquidacion;
+    private String deposito;
+    private String liquidacion;
 
     /**
      * @return the Afiliado
@@ -57,28 +57,28 @@ public class Transaccion {
     /**
      * @return the deposito
      */
-    public int getDeposito() {
+    public String getDeposito() {
         return deposito;
     }
 
     /**
      * @param deposito the deposito to set
      */
-    public void setDeposito(int deposito) {
+    public void setDeposito(String deposito) {
         this.deposito = deposito;
     }
 
     /**
      * @return the liquidacion
      */
-    public long getLiquidacion() {
+    public String getLiquidacion() {
         return liquidacion;
     }
 
     /**
      * @param liquidacion the liquidacion to set
      */
-    public void setLiquidacion(long liquidacion) {
+    public void setLiquidacion(String liquidacion) {
         this.liquidacion = liquidacion;
     }
 

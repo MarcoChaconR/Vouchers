@@ -9,6 +9,6 @@ package Negocio;
  *
  * @author mchaconr
  */
-public class Depositos {
+public class Cierres {
 
 }

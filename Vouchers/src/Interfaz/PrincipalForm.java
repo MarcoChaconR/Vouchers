@@ -6,9 +6,11 @@
 package Interfaz;
 
 import static Interfaz.MetPrincipales.SeleccionarArchivo;
-import static Interfaz.MetPrincipales.Tabla;
+import static Interfaz.MetPrincipales.Vouchers;
 import java.io.File;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
@@ -32,7 +34,7 @@ public class PrincipalForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PrincipalForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         initComponents();
@@ -177,12 +179,13 @@ public class PrincipalForm extends javax.swing.JFrame {
 
     private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
         File archivo = SeleccionarArchivo(this, "Colones");
-        
-        try{
-            Tabla(archivo);
-        }catch (IOException ex){
-            
+        try {
+            Vouchers(archivo);
+        } catch (IOException ex) {
+            Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+
         
     }//GEN-LAST:event_VouchersColonesActionPerformed
 

@@ -11,7 +11,7 @@ import Entidades.*;
  *
  * @author mchaconr
  */
-public class Vouchers {
+public class Principal {
 
     /**
      * @param args the command line arguments
