@@ -73,6 +73,9 @@ public class Num2Char {
                     break;
                 case 3:
                     hilera = lcBloque + IIf((lnPrimerDigito == 1) && (lnSegundoDigito == 0) && (lnTercerDigito == 0), " MILLON", " MILLONES") + hilera;
+                    break;
+                case 4:
+                    hilera = lcBloque + IIf(lnBloqueCero == 3, "", " MIL") + hilera;
             }
             lnNumeroBloques++;
 
