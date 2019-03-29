@@ -1,4 +1,3 @@
-
 package Entidades;
 
 import java.util.List;
@@ -9,19 +8,20 @@ import java.util.List;
  */
 public class Lotes {
 
-    private List<Voucher> voucher;
+    private static List<Voucher> ListaVoucher;
 
     /**
-     * @return the voucher
+     * @return the ListaVoucher
      */
-    public List<Voucher> getVoucher() {
-        return voucher;
+    public List<Voucher> getListaVoucher() {
+        return ListaVoucher;
     }
 
     /**
-     * @param voucher the voucher to set
+     * @param ListaVoucher the ListaVoucher to set
      */
-    public void setVoucher(List<Voucher> voucher) {
-        this.voucher = voucher;
+    public static void setListaVoucher(List<Voucher> ListaVoucher) {
+        Entidades.Lotes.ListaVoucher = ListaVoucher;
     }
+
 }

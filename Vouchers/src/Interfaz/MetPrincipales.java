@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import Entidades.Lotes;
 import java.awt.Component;
 import java.io.BufferedReader;
 import java.io.File;
@@ -15,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Entidades.Voucher;
 
@@ -55,39 +55,50 @@ public class MetPrincipales {
 
     public static void Vouchers(File Archivo) throws FileNotFoundException, IOException {
         //JTable tabla = new JTable();
-        List<Voucher> listaVouchers = new ArrayList<>();
-        Voucher autorizacion = new Voucher();
+        List<Entidades.Voucher> listaVouchers = new ArrayList<>();
+        Voucher autorizaciones = new Voucher();
         FileReader leer = new FileReader(Archivo.getAbsoluteFile());
         BufferedReader linea = new BufferedReader(leer);
         String sCadena = "";
+        String substring;
         List<String> LineasErroneas = new ArrayList<>();
 
         while ((sCadena = linea.readLine()) != null) {
             //JOptionPane.showConfirmDialog(null, sCadena);
             if (sCadena.length() == 137) {
                 try {
-                    autorizacion.setAfiliado(sCadena.substring(3, 8));
-                    autorizacion.setDeposito(sCadena.substring(13, 8));
-                    autorizacion.setTarjeta(sCadena.substring(21, 18));
-                    autorizacion.setLiquidacion(sCadena.substring(49, 11));
-                    autorizacion.setAutorizacion(sCadena.substring(64, 6));
-                    autorizacion.setFeAutorizacion(sCadena.substring(70, 8));
-                    autorizacion.setMonto(Double.parseDouble(sCadena.substring(78, 20)));
-                    autorizacion.setComision(Double.parseDouble(sCadena.substring(98, 20)));
-                    autorizacion.setLote(Integer.parseInt(sCadena.substring(122, 6)));
-                    autorizacion.setFeLote(sCadena.substring(130, 8));
-                    listaVouchers.add(autorizacion);
+                    substring = sCadena.substring(2, 10);
+                    autorizaciones.setAfiliado(substring);
+                    substring = sCadena.substring(12, 20);
+                    autorizaciones.setDeposito(substring);
+                    substring = sCadena.substring(20, 38);
+                    autorizaciones.setTarjeta(substring);
+                    substring = sCadena.substring(48, 59);
+                    autorizaciones.setLiquidacion(substring);
+                    substring = sCadena.substring(63, 69);
+                    autorizaciones.setAutorizacion(substring);
+                    substring = sCadena.substring(69, 77);
+                    autorizaciones.setFeAutorizacion(substring);
+                    substring = sCadena.substring(77, 97);
+                    autorizaciones.setMonto(Double.parseDouble(substring));
+                    substring = sCadena.substring(97, 117);
+                    autorizaciones.setComision(Double.parseDouble(substring));
+                    substring = sCadena.substring(121, 127);
+                    autorizaciones.setLote(Integer.parseInt(substring));
+                    substring = sCadena.substring(129, 137);
+                    autorizaciones.setFeLote(substring);
+                    listaVouchers.add(autorizaciones);
                 } catch (Exception ex) {
                     LineasErroneas.add(sCadena);
                 }
             } else {
                 LineasErroneas.add(sCadena);
             }
-            if (LineasErroneas.size() > 0) {
-                JOptionPane.showMessageDialog(null, "Se presentaron Lineas Erroneas en el archivo", "Mensage!", JOptionPane.WARNING_MESSAGE);
-            }
         }
-
+        if (LineasErroneas.size() > 0) {
+            JOptionPane.showMessageDialog(null, "Se presentaron Lineas Erroneas en el archivo", "Mensage!", JOptionPane.WARNING_MESSAGE);
+        }
+        Lotes.setListaVoucher(listaVouchers);
     }
 
 }
