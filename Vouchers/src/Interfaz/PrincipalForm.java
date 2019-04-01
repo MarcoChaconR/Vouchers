@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.TableModel;
 
 /**
  * @author mchaconr
@@ -31,8 +32,14 @@ public class PrincipalForm extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
         }
+
         //this.setIconImage("");
+
+        //TablaVouchers.setVisible(false);
+
         initComponents();
+        //TableModel dataModel=new TableModel();
+        //TablaVouchers.setModel(dataModel);
     }
 
     @SuppressWarnings("unchecked")
