@@ -13,26 +13,31 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Carga de archivos"/>
           </Properties>
+          <AccessibilityProperties>
+            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="Form"/>
+            </Property>
+          </AccessibilityProperties>
           <SubComponents>
             <Menu class="javax.swing.JMenu" name="jMenu3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Vouchers"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="VouchersDolares">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Dolares"/>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VouchersDolaresActionPerformed"/>
-                  </Events>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="VouchersColones">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Colones"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VouchersColonesActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="VouchersDolares">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Dolares"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VouchersDolaresActionPerformed"/>
                   </Events>
                 </MenuItem>
               </SubComponents>
@@ -42,24 +47,24 @@
                 <Property name="text" type="java.lang.String" value="Estractos Bancarios"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="EstractosColones">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Colones"/>
-                  </Properties>
-                </MenuItem>
                 <MenuItem class="javax.swing.JMenuItem" name="EstractosDolares">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Dolares"/>
                   </Properties>
                 </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="EstractosColones">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Colones"/>
+                  </Properties>
+                </MenuItem>
               </SubComponents>
             </Menu>
+            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="LimpiarTablas">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Limpiar Tabla"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator1">
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -120,14 +125,12 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane1" max="32767" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="label1" min="-2" pref="563" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="217" max="32767" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
+              <Component id="jTabbedPane1" pref="790" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="label1" min="-2" pref="404" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -183,6 +186,26 @@
               </Constraints>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="10" rowCount="0">
+                        <Column editable="false" title="Afiliado" type="java.lang.Object"/>
+                        <Column editable="true" title="Deposito" type="java.lang.Object"/>
+                        <Column editable="true" title="Tarjeta" type="java.lang.Object"/>
+                        <Column editable="true" title="Liquidacion" type="java.lang.Object"/>
+                        <Column editable="false" title="Autorizacion" type="java.lang.Object"/>
+                        <Column editable="false" title="Fe Autorz." type="java.lang.Object"/>
+                        <Column editable="false" title="Monto" type="java.lang.Object"/>
+                        <Column editable="false" title="Comision" type="java.lang.Object"/>
+                        <Column editable="false" title="Lote" type="java.lang.Object"/>
+                        <Column editable="false" title="FeCierre" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
             </Container>
           </SubComponents>
         </Container>

@@ -18,6 +18,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import Entidades.Voucher;
+import com.sun.prism.impl.Disposer;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -56,7 +59,7 @@ public class MetPrincipales {
     public static void Vouchers(File Archivo) throws FileNotFoundException, IOException {
         //JTable tabla = new JTable();
         List<Entidades.Voucher> listaVouchers = new ArrayList<>();
-        Voucher autorizaciones = new Voucher();
+
         FileReader leer = new FileReader(Archivo.getAbsoluteFile());
         BufferedReader linea = new BufferedReader(leer);
         String sCadena = "";
@@ -65,8 +68,10 @@ public class MetPrincipales {
 
         while ((sCadena = linea.readLine()) != null) {
             //JOptionPane.showConfirmDialog(null, sCadena);
+
             if (sCadena.length() == 137) {
                 try {
+                    Voucher autorizaciones = new Voucher();
                     substring = sCadena.substring(2, 10);
                     autorizaciones.setAfiliado(substring);
                     substring = sCadena.substring(12, 20);
@@ -88,6 +93,7 @@ public class MetPrincipales {
                     substring = sCadena.substring(129, 137);
                     autorizaciones.setFeLote(substring);
                     listaVouchers.add(autorizaciones);
+                    autorizaciones = null;
                 } catch (Exception ex) {
                     LineasErroneas.add(sCadena);
                 }
@@ -97,8 +103,38 @@ public class MetPrincipales {
         }
         if (LineasErroneas.size() > 0) {
             JOptionPane.showMessageDialog(null, "Se presentaron Lineas Erroneas en el archivo", "Mensage!", JOptionPane.WARNING_MESSAGE);
+        } else {
+            JOptionPane.showMessageDialog(null, "Se cargó correctamente el Archivo", "Éxito!", JOptionPane.INFORMATION_MESSAGE);
         }
         Lotes.setListaVoucher(listaVouchers);
+    }
+
+    public static void cargarTabla(JTable tabla) {
+        try {
+            List<Entidades.Voucher> listaVouchers = new ArrayList<>();
+            String titulos[] = {"Afiliado", "Deposito", "Tarjeta", "Liquidacion", "Autorizacion", "Fe Autorz.", "Monto", "Comision", "Lote", "FeCierre"};
+            Object[] fila = new Object[10];
+            DefaultTableModel modelo = new DefaultTableModel(null, titulos);
+            listaVouchers.addAll(Lotes.getListaVoucher());
+            for (int i = 0; i <= listaVouchers.size() - 1; i++) {
+                fila[0] = listaVouchers.get(i).getAfiliado();
+                fila[1] = listaVouchers.get(i).getDeposito();
+                fila[2] = listaVouchers.get(i).getTarjeta();
+                fila[3] = listaVouchers.get(i).getLiquidacion();
+                fila[4] = listaVouchers.get(i).getAutorizacion();
+                fila[5] = listaVouchers.get(i).getFeAutorizacion();
+                fila[6] = listaVouchers.get(i).getMonto();
+                fila[7] = listaVouchers.get(i).getComision();
+                fila[8] = listaVouchers.get(i).getLote();
+                fila[9] = listaVouchers.get(i).getFeLote();
+                modelo.addRow(fila); // Añade la fila al final del modelo de la tabla
+            }
+            tabla.setModel(modelo);
+            //ContarFilas();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al intentar cargar la tabla.\n"
+                    + e, "Error en la operación", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
 }

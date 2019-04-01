@@ -11,6 +11,7 @@ public class Voucher extends Transaccion {
     private double comision;
     private int lote;
     private String feLote;
+    
 
     /**
      * @return the tarjeta
