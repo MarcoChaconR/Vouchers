@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JFileChooser;
 import javax.swing.UIManager;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.TableModel;
 
 /**
  *
@@ -36,8 +37,10 @@ public class PrincipalForm extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        //TablaVouchers.setVisible(false);
         initComponents();
+        TableModel dataModel=new TableModel();
+        TablaVouchers.setModel(dataModel);
     }
 
     /**
@@ -52,6 +55,7 @@ public class PrincipalForm extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
+        TablaVouchers = new javax.swing.JTable();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTabbedPane4 = new javax.swing.JTabbedPane();
@@ -82,6 +86,20 @@ public class PrincipalForm extends javax.swing.JFrame {
         jTabbedPane1.setName("ListaVouchers"); // NOI18N
 
         jTabbedPane2.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
+
+        TablaVouchers.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(TablaVouchers);
+
         jTabbedPane2.addTab("Carga de Vouchers de Credomatic", jScrollPane1);
 
         jTabbedPane1.addTab("Vouchers", jTabbedPane2);
@@ -209,6 +227,7 @@ public class PrincipalForm extends javax.swing.JFrame {
     private javax.swing.JMenuItem EstractosColones;
     private javax.swing.JMenuItem EstractosDolares;
     private javax.swing.JMenuItem LimpiarTablas;
+    private javax.swing.JTable TablaVouchers;
     private javax.swing.JMenuItem VouchersColones;
     private javax.swing.JMenuItem VouchersDolares;
     private javax.swing.JMenu jMenu1;
