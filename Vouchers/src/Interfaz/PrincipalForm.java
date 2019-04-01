@@ -49,15 +49,11 @@ public class PrincipalForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         label1 = new java.awt.Label();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        VouchersColones = new javax.swing.JMenuItem();
-        VouchersDolares = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        EstractosDolares = new javax.swing.JMenuItem();
-        EstractosColones = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        LimpiarTablas = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
@@ -109,44 +105,25 @@ public class PrincipalForm extends javax.swing.JFrame {
         label1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         label1.setText("Departamento de Cobros - Vouchers Credomatic");
 
-        jMenu1.setText("Carga de archivos");
+        jMenu5.setText("Archivo");
+        jMenu5.setName(""); // NOI18N
 
-        jMenu3.setText("Vouchers");
-
-        VouchersColones.setText("Colones");
-        VouchersColones.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Cargar Archivo de Vouchers");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VouchersColonesActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu3.add(VouchersColones);
+        jMenu5.add(jMenuItem1);
 
-        VouchersDolares.setText("Dolares");
-        VouchersDolares.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                VouchersDolaresActionPerformed(evt);
-            }
-        });
-        jMenu3.add(VouchersDolares);
+        jMenuItem2.setText("Cargar Archivo de Depósitos");
+        jMenu5.add(jMenuItem2);
+        jMenu5.add(jSeparator1);
 
-        jMenu1.add(jMenu3);
+        jMenuItem3.setText("Limpiar Tablas");
+        jMenu5.add(jMenuItem3);
 
-        jMenu4.setText("Estractos Bancarios");
-
-        EstractosDolares.setText("Dolares");
-        jMenu4.add(EstractosDolares);
-
-        EstractosColones.setText("Colones");
-        jMenu4.add(EstractosColones);
-
-        jMenu1.add(jMenu4);
-        jMenu1.add(jSeparator1);
-
-        LimpiarTablas.setText("Limpiar Tabla");
-        jMenu1.add(LimpiarTablas);
-
-        jMenuBar1.add(jMenu1);
-        jMenu1.getAccessibleContext().setAccessibleParent(this);
+        jMenuBar1.add(jMenu5);
 
         jMenu2.setText("Generar");
 
@@ -187,24 +164,35 @@ public class PrincipalForm extends javax.swing.JFrame {
         jTabbedPane1.getAccessibleContext().setAccessibleDescription("");
     }// </editor-fold>//GEN-END:initComponents
 
-    private void VouchersColonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersColonesActionPerformed
-        File archivo = SeleccionarArchivo(this, "Colones");
-        try {
-            Vouchers(archivo);
-            cargarTabla(jTable1);
-        } catch (IOException ex) {
-            Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        String optiones[] = {"Dólares", "Colones", "Cancelar"};
+        String moneda = "";
+        File file;
+        switch (JOptionPane.showOptionDialog(this, "Seleccione la moneda del archivo", "Abrir Vouchers Credomatic ",
+                JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, optiones, null)) {
+            case 0:
+                moneda = "Dolares";
+                break;
+            case 1:
+                moneda = "Colones";
+                break;
+            case 2:
+                moneda = null;
         }
-        
+        if (moneda != null) {
+            file = SeleccionarArchivo(this, moneda);
+            try {
+                Vouchers(file);
+                
+            } catch (IOException ex) {
+                Logger.getLogger(PrincipalForm.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            cargarTabla(jTable1);
+            
+        }
 
-        
-    }//GEN-LAST:event_VouchersColonesActionPerformed
 
-    private void VouchersDolaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VouchersDolaresActionPerformed
-        // TODO add your handling code here:
-        MetPrincipales.SeleccionarArchivo(this, "Dólares");
-
-    }//GEN-LAST:event_VouchersDolaresActionPerformed
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -217,16 +205,12 @@ public class PrincipalForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem EstractosColones;
-    private javax.swing.JMenuItem EstractosDolares;
-    private javax.swing.JMenuItem LimpiarTablas;
-    private javax.swing.JMenuItem VouchersColones;
-    private javax.swing.JMenuItem VouchersDolares;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JScrollPane jScrollPane1;
